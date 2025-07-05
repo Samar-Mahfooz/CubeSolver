@@ -8,4 +8,6 @@ add_executable(CubeSolver main.cpp
         "Cube Modelling/RubiksCube.h"
         "Cube Modelling/RubiksCube3Darray.cpp"
         "Cube Modelling/RubiksCube1Darray.cpp"
+        Solvers/BFSSolver.h
+        Solvers/DFSSolver.h
 )
