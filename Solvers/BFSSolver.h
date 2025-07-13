@@ -20,7 +20,7 @@ private:
         visited[rubikscube] = true;
 
         while (!q.empty()) {
-            T node = q.fron();
+            T node = q.front();
             q.pop();
 
             if (node.isSolved()) {
@@ -29,13 +29,13 @@ private:
 
             for (int i=0;i<18;i++) {
                 auto curr_move = RubiksCube::MOVES(i);
-                node.move(curr_move);
+                node.moves(curr_move);
                 if (!visited[node]) {
                     visited[node] = true;
                     q.push(node);
-                    move_done[curr_move] = true;
+                    move_done[node] = curr_move;
                 }
-                move.invert(curr_move);
+                node.invert(curr_move);
             }
         }
 

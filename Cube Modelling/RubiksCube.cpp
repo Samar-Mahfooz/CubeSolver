@@ -162,7 +162,7 @@ void RubiksCube::print() const {
     for (int row = 0;row<=2;row++) {
         for (int i=0;i<7;i++) cout<<" ";
         for (int col = 0;col<3;col++) {
-            cout<<getColorLetter(getcolor(FACE::UP, row, col))<<" ";
+            cout<<getColorLetter(getColor(FACE::UP, row, col))<<" ";
         }
         cout<<"\n";
     }
@@ -170,19 +170,19 @@ void RubiksCube::print() const {
     for (int row = 0;row<3;row++) {
         // print the left face //
         for (int col= 0;col<3;col++) {
-            cout<<getColorLetter(getcolor(FACE::LEFT, row, col))<<" ";
+            cout<<getColorLetter(getColor(FACE::LEFT, row, col))<<" ";
         }
         // print the front face //
         for (int col = 0;col<3;col++) {
-            cout<<getColorLetter(getcolor(FACE::FRONT, row, col))<<" ";
+            cout<<getColorLetter(getColor(FACE::FRONT, row, col))<<" ";
         }
         // print the right face //
         for (int col = 0;col<3;col++) {
-            cout<<getColorLetter(getcolor(FACE::RIGHT, row, col))<<" ";
+            cout<<getColorLetter(getColor(FACE::RIGHT, row, col))<<" ";
         }
         // print the back face //
         for (int col = 0;col<3;col++) {
-            cout<<getColorLetter(getcolor(FACE::BACK, row, col))<<" ";
+            cout<<getColorLetter(getColor(FACE::BACK, row, col))<<" ";
         }
         cout<<"\n";
     }
@@ -191,7 +191,7 @@ void RubiksCube::print() const {
     for (int row = 0;row<3;row++) {
         for (int i=0;i<7;i++) cout<<" ";
         for (int col = 0;col<3;col++) {
-            cout<<getColorLetter(getcolor(FACE::DOWN, row, col))<<" ";
+            cout<<getColorLetter(getColor(FACE::DOWN, row, col))<<" ";
         }
         cout<<"\n";
     }
@@ -215,57 +215,57 @@ string RubiksCube::getCornerColorString(int ind) const {
     switch (ind) {
         // UFR//
         case 0:
-            str += getColorLetter(getcolor(FACE::UP, 2,2));
-            str += getColorLetter(getcolor(FACE::FRONT, 0,2));
-            str += getColorLetter(getcolor(FACE::RIGHT, 0,0));
+            str += getColorLetter(getColor(FACE::UP, 2,2));
+            str += getColorLetter(getColor(FACE::FRONT, 0,2));
+            str += getColorLetter(getColor(FACE::RIGHT, 0,0));
             break;
 
         // UFL //
         case 1:
-            str += getColorLetter(getcolor(FACE::UP, 2, 0));
-            str += getColorLetter(getcolor(FACE::FRONT, 0, 0));
-            str += getColorLetter(getcolor(FACE::LEFT, 0, 2));
+            str += getColorLetter(getColor(FACE::UP, 2, 0));
+            str += getColorLetter(getColor(FACE::FRONT, 0, 0));
+            str += getColorLetter(getColor(FACE::LEFT, 0, 2));
             break;
         // UBL //
         case 3:
-            str += getColorLetter(getcolor(FACE::UP, 0, 2));
-            str += getColorLetter(getcolor(FACE::BACK, 0, 0));
-            str += getColorLetter(getcolor(FACE::RIGHT, 0, 2));
+            str += getColorLetter(getColor(FACE::UP, 0, 2));
+            str += getColorLetter(getColor(FACE::BACK, 0, 0));
+            str += getColorLetter(getColor(FACE::RIGHT, 0, 2));
             break;
 
         // DFR //
         case 4:
-            str += getColorLetter(getcolor(FACE::DOWN, 0, 2));
-            str += getColorLetter(getcolor(FACE::FRONT, 2, 2));
-            str += getColorLetter(getcolor(FACE::RIGHT, 2, 0));
+            str += getColorLetter(getColor(FACE::DOWN, 0, 2));
+            str += getColorLetter(getColor(FACE::FRONT, 2, 2));
+            str += getColorLetter(getColor(FACE::RIGHT, 2, 0));
             break;
 
         // DFL //
         case 5:
-            str += getColorLetter(getcolor(FACE::DOWN, 0, 0));
-            str += getColorLetter(getcolor(FACE::FRONT, 2, 0));
-            str += getColorLetter(getcolor(FACE::LEFT, 2, 2));
+            str += getColorLetter(getColor(FACE::DOWN, 0, 0));
+            str += getColorLetter(getColor(FACE::FRONT, 2, 0));
+            str += getColorLetter(getColor(FACE::LEFT, 2, 2));
             break;
 
         // DBR //
         case 6:
-            str += getColorLetter(getcolor(FACE::DOWN, 2, 2));
-            str += getColorLetter(getcolor(FACE::BACK, 2, 0));
-            str += getColorLetter(getcolor(FACE::RIGHT, 2, 2));
+            str += getColorLetter(getColor(FACE::DOWN, 2, 2));
+            str += getColorLetter(getColor(FACE::BACK, 2, 0));
+            str += getColorLetter(getColor(FACE::RIGHT, 2, 2));
             break;
 
         // DBL //
         case 7:
-            str += getColorLetter(getcolor(FACE::DOWN, 2, 0));
-            str += getColorLetter(getcolor(FACE::BACK, 2, 2));
-            str += getColorLetter(getcolor(FACE::LEFT, 2, 0));
+            str += getColorLetter(getColor(FACE::DOWN, 2, 0));
+            str += getColorLetter(getColor(FACE::BACK, 2, 2));
+            str += getColorLetter(getColor(FACE::LEFT, 2, 0));
             break;
     }
     return str;
 }
 
 
-int RubiksCube::getCornerIndex(int ind) const {
+uint8_t RubiksCube::getCornerIndex(int ind) const {
     string corner = getCornerColorString(ind);
 
     int ret = 0;
@@ -287,7 +287,7 @@ int RubiksCube::getCornerIndex(int ind) const {
     return ret;
 }
 
-int RubiksCube::getCornerOrientation(int ind) const {
+uint8_t RubiksCube::getCornerOrientation(int ind) const {
     string corner = getCornerColorString(ind);
 
     string actual_str = "";

@@ -20,7 +20,7 @@ private:
         if (dep>max_search_depth) return false;
 
         for (int i=0;i<18;i++) {
-            rubikscube.move(RubiksCube::MOVES(i));
+            rubikscube.moves(RubiksCube::MOVES(i));
             total_moves.push_back(RubiksCube::MOVES(i));
             if (dfs(dep+1)) return true;
             total_moves.pop_back();

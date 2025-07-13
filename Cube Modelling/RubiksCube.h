@@ -95,9 +95,9 @@ public:
 
     string getCornerColorString(int ind) const;
 
-    int getCornerIndex(int ind) const;
+    uint8_t getCornerIndex(int ind) const;
 
-    int getCornerOrientation(int ind) const;
+    uint8_t getCornerOrientation(int ind) const;
 };
 
 
